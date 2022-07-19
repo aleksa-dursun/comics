@@ -34,6 +34,7 @@ export default function SimpleGallery(props) {
     });
     lightbox.init();
     lightbox.on('close', () => {
+      navigation.clearListeners();
       fullScreenApi.pswpContainer.style.display = 'none';
       if (fullScreenApi.fullscreenAPI && fullScreenApi.fullscreenAPI.isFullscreen()) {
         fullScreenApi.fullscreenAPI.exit();
@@ -43,7 +44,9 @@ export default function SimpleGallery(props) {
       pageIndex = lightbox.pswp.currIndex;
       stepIndex = 0;
     });
-    navigation.onNextStep(() => goToNextStep(lightbox));
+    lightbox.on('openingAnimationEnd', () => {
+      navigation.onNextStep(() => goToNextStep(lightbox));
+    })
 
     return () => {
       lightbox.destroy();
