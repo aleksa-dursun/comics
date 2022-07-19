@@ -1,0 +1,139 @@
+@mixin animate {
+  -webkit-animation: linear;
+  -webkit-animation-duration: .3s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.wrapper {
+  position: relative;
+  margin: 0 auto;
+  min-width: 1000px;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+  }
+}
+
+.buttons {
+  position: relative;
+  bottom: 300px;
+}
+
+.active-slide {
+  z-index: 1000 !important;
+}
+
+.to-left {
+  @include animate;
+  -webkit-animation-name: toLeft;
+}
+
+.to-left-reverse {
+  @include animate;
+  -webkit-animation-name: toLeftReverse;
+}
+
+.to-right {
+  @include animate;
+  -webkit-animation-name: toRight;
+}
+
+.to-right-reverse {
+  @include animate;
+  -webkit-animation-name: toRightReverse;
+}
+
+.to-top {
+  @include animate;
+  -webkit-animation-name: toTop;
+}
+
+.to-top-reverse {
+  @include animate;
+  -webkit-animation-name: toTopReverse;
+}
+
+.to-bottom {
+  @include animate;
+  -webkit-animation-name: toBottom;
+}
+
+.to-bottom-reverse {
+  @include animate;
+  -webkit-animation-name: toBottomReverse;
+}
+
+@-webkit-keyframes toLeft {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@-webkit-keyframes toLeftReverse {
+  100% {
+    left: 0;
+  }
+  0% {
+    left: -100%;
+  }
+}
+
+@-webkit-keyframes toRight {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes toRightReverse {
+  100% {
+    left: 0;
+  }
+  0% {
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes toTop {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -100%;
+  }
+}
+
+@-webkit-keyframes toTopReverse {
+  100% {
+    top: 0;
+  }
+  0% {
+    top: -100%;
+  }
+}
+
+@-webkit-keyframes toBottom {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@-webkit-keyframes toBottomReverse {
+  100% {
+    top: 0;
+  }
+  0% {
+    top: 100%;
+  }
+}
